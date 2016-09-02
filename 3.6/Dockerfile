@@ -1,13 +1,4 @@
-FROM ubuntu:12.04
-
-# update packages
-RUN apt-get -y update
-
-# Install Oracle Java 7
-RUN apt-get -y install vim python-software-properties
-RUN add-apt-repository ppa:webupd8team/java
-RUN echo "oracle-java7-installer  shared/accepted-oracle-license-v1-1 boolean true" | debconf-set-selections
-RUN apt-get -y update && apt-get -y install oracle-java7-installer
+FROM java:openjdk-7-alpine
 
 # Install Apache Solr
 ENV SOLR_VERSION 3.6.2
